@@ -1,0 +1,16 @@
+.title {
+  text-align: center;
+}
+
+.form {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 320px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}

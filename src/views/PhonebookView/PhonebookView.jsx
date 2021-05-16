@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Form from '../Form';
-import ContactList from '../ContactList';
-import Filter from '../Filter';
+import Form from '../../components/Form';
+import ContactList from '../../components/ContactList';
+import Filter from '../../components/Filter';
 import { fetchContactsOperations } from '../../redux/phonebook/phonebook-operations';
 import { getLoading } from '../../redux/phonebook/phonebook-selectors';
 
-import style from './Phonebook.module.css';
+import style from './PhonebookView.module.css';
 
 class Phonebook extends Component {
   componentDidMount() {
