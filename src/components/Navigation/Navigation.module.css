@@ -3,9 +3,10 @@
   text-decoration: none;
   padding: 12px;
   font-weight: 700;
-  color: #2a363b;
+  font-size: 20px;
+  color: grey;
 }
 
 .activeLink {
-  color: #e84a5f;
+  color: #6685eb;
 }

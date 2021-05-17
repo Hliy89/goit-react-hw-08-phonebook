@@ -1,42 +1,43 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
-import {
-  registerSuccess,
-  registerError,
-  logoutSuccess,
-  logoutError,
-  loginSuccess,
-  loginError,
-  getCurrentUserSuccess,
-  getCurrentUserError,
-} from './auth-actions';
+import authActions from './auth-actions';
 
 const initialUserState = { name: null, email: null };
 
 const user = createReducer(initialUserState, {
-  [registerSuccess]: (_, { payload }) => payload.user,
-  [loginSuccess]: (_, { payload }) => payload.user,
-  [logoutSuccess]: () => initialUserState,
-  [getCurrentUserSuccess]: (_, { payload }) => payload,
+  [authActions.registerSuccess]: (_, { payload }) => payload.user,
+  [authActions.loginSuccess]: (_, { payload }) => payload.user,
+  [authActions.logoutSuccess]: () => initialUserState,
+  [authActions.getCurrentUserSuccess]: (_, {payload}) => payload,
 });
 
 const token = createReducer(null, {
-  [registerSuccess]: (_, { payload }) => payload.token,
-  [loginSuccess]: (_, { payload }) => payload.token,
-  [logoutSuccess]: () => null,
+  [authActions.registerSuccess]: (_, { payload }) => payload.token,
+  [authActions.loginSuccess]: (_, { payload }) => payload.token,
+  [authActions.logoutSuccess]: () => null,
 });
-
-const setError = (_, { payload }) => payload;
 
 const error = createReducer(null, {
-  [registerError]: setError,
-  [loginError]: setError,
-  [logoutError]: setError,
-  [getCurrentUserError]: setError,
+  [authActions.registerError]: (_, { payload }) => payload,
+  [authActions.loginError]: (_, { payload }) => payload,
+  [authActions.logoutError]: (_, { payload }) => payload,
+  [authActions.getCurrentUserError]: (_, { payload }) => payload,
 });
+
+const isLoading = createReducer(false, {
+  [authActions.registerSuccess]: () => true,
+  [authActions.loginSuccess]: () => true,
+  [authActions.getCurrentUserSuccess]: () => true,
+  [authActions.registerError]: () => false,
+  [authActions.loginError]: () => false,
+  [authActions.getCurrentUserError]: () => false,
+  [authActions.logoutSuccess]: () => false,
+})
+
 
 export default combineReducers({
   user,
+  isLoading,
   token,
   error,
 });

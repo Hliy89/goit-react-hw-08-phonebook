@@ -10,14 +10,14 @@ const AuthNav = () => (
       exact
       className={styles.link}
       activeClassName={styles.activeLink}>
-      Регистрация
+      Sign_up
     </NavLink>
     <NavLink
       to="/login"
       exact
       className={styles.link}
       activeClassName={styles.activeLink}>
-      Логин
+      Log_in
     </NavLink>
   </div>
 );

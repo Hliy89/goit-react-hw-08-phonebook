@@ -16,3 +16,20 @@ export const getCurrentUserRequest = createAction('auth/getCurrentUserRequest');
 export const getCurrentUserSuccess = createAction('auth/getCurrentUserSuccess');
 export const getCurrentUserError = createAction('auth/getCurrentUserError');
 
+const authActions = {
+    registerRequest,
+    registerSuccess,
+    registerError,
+    loginRequest,
+    loginSuccess,
+    loginError,
+    logoutRequest,
+    logoutSuccess,
+    logoutError,
+    getCurrentUserRequest,
+    getCurrentUserSuccess,
+    getCurrentUserError,
+};
+
+export default authActions;
+
