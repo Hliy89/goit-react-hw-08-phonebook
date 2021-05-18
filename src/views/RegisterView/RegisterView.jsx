@@ -26,8 +26,6 @@ class RegisterView extends Component {
 
     return (
       <div className={styles.formContainer}>
-        <h1 className={styles.title}>Страница регистрации</h1>
-
         <form
           onSubmit={this.handleSubmit}
           className={styles.form}

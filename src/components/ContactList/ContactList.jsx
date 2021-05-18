@@ -25,7 +25,11 @@ const ContactList = ({ contacts, filter, onDelete }) => {
     </li>
   ));
 
-  return <ul className={style.contactList}>{contactElement}</ul>;
+  return (
+    <div className={style.contactContainer}>
+      <ul className={style.contactList}>{contactElement}</ul>
+    </div>
+  );
 };
 
 ContactList.defaultProps = {
